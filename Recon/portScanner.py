@@ -1,7 +1,7 @@
 import socket
 import threading
 
-def scan_port_range(hostname, port_range, verbose = False, output = None):
+def scan_port_range(hostname, port_range, verbose = False, output = None): # Only accepts TCP for now and doesn't have a timing scheme
     target_ip = socket.gethostbyname(hostname)
     scanning_socket_tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     for port in range(port_range[0],port_range[-1]+1):
