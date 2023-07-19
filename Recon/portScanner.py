@@ -21,7 +21,7 @@ def scan_port_range(hostname, port_range, verbose = False, output = None):
                         output_file.write("Port {} is open, running: {}".format(port,banner))
                 scanning_socket_tcp
             else:
-                print("STAHP")
+                continue
         except:
             pass
 
@@ -38,5 +38,11 @@ def main(target_name, port_range, num_of_threads, verbose = False, output = None
         thread = threading.Thread(target = scan_port_range, args=[target_name,port_arrays[i],verbose,output])
         thread.start()
 
-
-main("213.16.174.84", [0,100], 3, True, "output.txt")
+target_ip = ""
+min_port = 0
+max_port = 1000
+port_range = [min_port, max_port]
+num_threads = 3
+verbose = True
+output_file = "output.txt"
+main(, port_range, num_threads, verbose, output_file)
